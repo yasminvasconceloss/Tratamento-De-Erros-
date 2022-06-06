@@ -26,11 +26,6 @@ function clickFileButton(){
         alert("Obrigado pela visita")
     }
 
-    fr.onload=function(){
-        var info = fr.result; 
-        console.log(info);
-        document.getElementById('output').textContent=fr.result;
-    }   
 }
 
 function clickNumberButton() {
@@ -43,15 +38,16 @@ function clickNumberButton() {
     // 5) No finnaly informar "O número escolhido foi + " numero     ***
 
     number = document.getElementById("inputnumber").value
+    
 
     try{
         if (number == '') throw 'Informe um valor'   //Verifica se é nulo
+        if( number < 6  || number > 9) throw (' Informe um valor maior que 5 e menor que 10')
 
+         }
 
-        if (number < 5 || number > 10) throw 'Informe um valor maior que 5 e menor que 10'   //Verifica se é maior que 5 e menor que 10
-    }
-    catch(erro){
-        document.getElementById("outputnumber").innerHTML = erro
+    catch(error){
+        document.getElementById("outputnumber").innerHTML = `Erro ${error} encontrado`
         alert('Erro + erro javascript')
     }
 
