@@ -37,18 +37,20 @@ function clickNumberButton() {
     // 4) Se o try falhar, lançar exception "Erro + erro javascript" ***
     // 5) No finnaly informar "O número escolhido foi + " numero     ***
 
+    document.getElementById("outputnumber").innerHTML = " "   //apagar a mensagem após a conclusão de que o númeor inserido é correto
     number = document.getElementById("inputnumber").value
     
 
     try{
         if (number == '') throw 'Informe um valor'   //Verifica se é nulo
-        if( number < 6  || number > 9) throw (' Informe um valor maior que 5 e menor que 10')
+        number = Number(number) // converte de string para número
+        if( number <= 5 || number >= 10) throw ' Informe um valor maior que 5 e menor que 10'
 
          }
 
     catch(error){
         document.getElementById("outputnumber").innerHTML = `Erro ${error} encontrado`
-        alert('Erro + erro javascript')
+        console.log("Erro" + erro)
     }
 
     finally{
